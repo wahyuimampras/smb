@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 
+
 class SupplierController extends Controller
 {
     /**
@@ -27,7 +28,7 @@ class SupplierController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Requestt $request)
     {
         $request->validate([
             'name' => 'required',
