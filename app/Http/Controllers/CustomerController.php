@@ -92,4 +92,6 @@ class CustomerController extends Controller
         $customer->delete();
         return redirect()->back()->with('success', 'data berhasil dihapus');
     }
+
 }
+
