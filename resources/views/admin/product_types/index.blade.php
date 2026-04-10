@@ -10,7 +10,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 ">
                     <div class="flex justify-between">
-                        <h1 class="text-4xl text-black text-extrabold mb-2">{{ __('Product Type') }}</h1>
+                        <h1 class="text-4xl text-black font-bold mb-2">{{ __('Product Type') }}</h1>
                         <x-primary-button 
                             @click.prevent="$dispatch('open-modal', 'create-productType'); showCreateModal = true">
                             <i class="fa-solid fa-plus mr-2"></i>Add Product Type

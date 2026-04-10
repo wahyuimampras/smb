@@ -27,10 +27,10 @@ class SupplierCustomerBarChart
 
         return (new LarapexChart)->horizontalBarChart()
             ->setTitle('Count of Customers and Supplier')
-            ->setSubtitle('Customers and Supplier')
             ->addData('Jumlah Supplier', $supplierData)
             ->addData('Jumlah Customer', $customerData)
             ->setXAxis(['Jakarta Pusat', 'Jakarta Barat', 'Jakarta Timur', 'Jakarta Selatan', 'Jakarta Utara'])
-            ->setColors(['#ACBFA4', '#F75270']);
+            ->setColors(['#ACBFA4', '#F75270'])
+            ;
     }
 }

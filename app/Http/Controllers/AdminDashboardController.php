@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Charts\SupplierCustomeerBarChart;
 use App\Charts\SupplierCustomerBarChart;
 use App\Charts\SupplierCustomerLineChart;
+use App\Models\Customer;
+use App\Models\ProductType;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 
 class AdminDashboardController extends Controller
@@ -12,12 +14,14 @@ class AdminDashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(SupplierCustomerLineChart $lineChart, SupplierCustomerBarChart $barChart)
-    {
+    public function index(SupplierCustomerBarChart $barChart)
+    {   
+        $suppliers = Supplier::all();
+        $customers = Customer::all();
+        $product_types = ProductType::all();
         return view('admin.dashboard', [
-            'lineChart' => $lineChart->build(),
             'barChart' => $barChart->build(),
-        ]);
+        ], compact(['suppliers', 'customers', 'product_types']));
     }
 
     /**
