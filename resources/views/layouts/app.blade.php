@@ -41,10 +41,12 @@
                             <span>Suppliers</span>
                         </a>
                         
-                        <a href="" class="flex items-center py-4 px-6 rounded text-xl hover:bg-red-700 hover:text-white transition group">
-                            <i class="fa-solid fa-box w-6 h-6 mr-3 text-gray-500 group-hover:text-white"></i>
+                        <a href="{{ route('admin.product_types.index') }}" class="flex items-center py-4 px-6 rounded text-xl transition group 
+                        {{ request()->routeIs('admin.product_types.*') ? 'bg-red-700 text-white' : 'text-black hover:bg-red-700 hover:text-white' }}"> 
+                            <i class="fa-solid fa-box w-6 h-6 mr-3 {{ request()->routeIs('admin.product_types.*') ? 'text-white' : 'text-gray-500 group-hover:text-white' }}"></i>
                             <span>Product Types</span>
                         </a>
+                        
 
                         <a href="" class="flex items-center py-4 px-6 rounded text-black text-xl hover:bg-red-700 hover:text-white transition group">
                             <i class="fa-solid fa-money-bill w-6 h-6 mr-3 text-gray-500 group-hover:text-white"></i>
@@ -99,6 +101,18 @@
                             <span>Production Schedule</span>
                         </a>
 
+                        <div class="py-4 px-3 text-xl font-extrabold text-black uppercase bg-gray-200 p-2">Inventory</div>
+
+                        <a href="" class="flex items-center py-4 px-6 rounded text-black text-xl hover:bg-red-700 hover:text-white transition group">
+                            <i class="fa-solid fa-file w-6 h-6 mr-3 text-gray-500 group-hover:text-white"></i>
+                            <span>Inventory Orders</span>
+                        </a>
+
+                        <a href="" class="flex items-center py-4 px-6 rounded text-black text-xl hover:bg-red-700 hover:text-white transition group">
+                            <i class="fa-solid fa-warehouse w-6 h-6 mr-3 text-gray-500 group-hover:text-white"></i>
+                            <span>Inventory Usage</span>
+                        </a>
+
                         <div class="py-4 px-3 text-xl font-extrabold text-black uppercase bg-gray-200 p-2">Documentation</div>
 
                         <a href="" class="flex items-center py-4 px-6 rounded text-black text-xl hover:bg-red-700 hover:text-white transition group">
@@ -116,7 +130,7 @@
                 </main>
             </div>
         </div>
-    @vite(['resources/js/app.js'])
+
     @stack('scripts')
     </body>
 </html>

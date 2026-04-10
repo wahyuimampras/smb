@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StaffDashboardController;
 use App\Http\Controllers\SupplierController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,16 +19,13 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth', 'can:access-admin'])->prefix('admin')->group(function () {
-    Route::get('/dashboard', function(){
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('admin.dashboard');
     Route::resource('suppliers', SupplierController::class)->names('admin.suppliers');
+    Route::resource('product_types', ProductTypeController::class)->names('admin.product_types');
 });
 
 Route::middleware(['auth', 'can:access-staff'])->prefix('staff')->group(function () {
-    Route::get('/dashboard', function(){
-        return view('staff.dashboard');
-    })->name('staff.dashboard');
+    Route::get('/dashboard', [StaffDashboardController::class, 'index'])->name('staff.dashboard');
     Route::resource('customers', CustomerController::class)->names('staff.customers');
 });
 
