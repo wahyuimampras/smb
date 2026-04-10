@@ -2,10 +2,18 @@
     <!-- Primary Navigation Menu -->
     <div class="w-full px-6 sm:px-6 lg:px-8">
         <div class="flex justify-between py-2">
-            <div class="flex">
-                <x-text-input class="mr-2 w-80"></x-text-input>
-                <x-primary-button>Search</x-primary-button>
+
+            <div class="flex items-center">
+                @isset($headerSearch)
+                    {{ $headerSearch }}
+                @else
+                    <div class="flex">
+                        <x-text-input class="mr-2 w-80" placeholder="Search..."></x-text-input>
+                        <x-primary-button>Search</x-primary-button>
+                    </div>
+                @endisset
             </div>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">

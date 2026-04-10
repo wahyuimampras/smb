@@ -1,4 +1,5 @@
 <x-app-layout>
+    
     <div x-data="{
         showCreateModal: false, 
         showEditModal: false, 
@@ -48,7 +49,7 @@
                                         
                                         <button @click.prevent="
                                             deleteUrl = '{{ route('admin.product_types.destroy', $pt->id) }}';
-                                            productType.name = '{{ addslashes($pt->productTypeName) }}';
+                                            productType.productTypeName = '{{ addslashes($pt->productTypeName) }}';
                                             showDeleteModal = true;
                                             $dispatch('open-modal', 'confirm-delete');
                                             " class="text-red-600 hover:underline">
@@ -92,11 +93,11 @@
                 <div class="mt-6 space-y-4">
                     <div>
                         <x-input-label value="Product Type Name" />
-                        <x-text-input name="productTypeName" x-model="productType.name" type="text" class="mt-1 block w-full" required />
+                        <x-text-input name="productTypeName" x-model="productType.productTypeName" type="text" class="mt-1 block w-full" required />
                     </div>
                     <div>
                         <x-input-label value="Product Type Description" />
-                        <textarea name="productTypeDesc" x-model="productType.desc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500" rows="3" required></textarea>
+                        <textarea name="productTypeDesc" x-model="productType.productTypeDesc" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500" rows="3" required></textarea>
                     </div>
                 </div>
                 <div class="mt-6 flex justify-end">

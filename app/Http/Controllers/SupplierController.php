@@ -11,9 +11,19 @@ class SupplierController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $suppliers = Supplier::all();
+        $search = $request->input('search');
+
+        // 2. Lakukan query dengan filter jika ada kata kunci
+        $suppliers = Supplier::when($search, function ($query, $search) {
+            return $query->where('supplier_code', 'like', '%' . $search . '%')
+                        ->orWhere('name', 'like', '%' . $search . '%')
+                        ->orWhere('phone', 'like', '%' . $search . '%')
+                        ->orWhere('email', 'like', '%' . $search . '%')
+                        ->orWhere('address', 'like', '%' . $search . '%');
+        })->get();
+
         return view('admin.suppliers.index', compact('suppliers'));
     }
 

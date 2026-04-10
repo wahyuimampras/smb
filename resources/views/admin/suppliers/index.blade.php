@@ -1,4 +1,16 @@
 <x-app-layout>
+    <x-slot name="headerSearch">
+        <form action="{{ route('admin.suppliers.index') }}" method="GET" class="flex">
+            <x-text-input 
+                name="search" 
+                value="{{ request('search') }}" 
+                class="mr-2 w-80" 
+                placeholder="Cari Supplier..." 
+            />
+            <x-primary-button type="submit">Search Supplier</x-primary-button>
+        </form>
+    </x-slot>
+
     <div x-data="{
         showCreateModal: false, 
         showEditModal: false, 
